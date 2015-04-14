@@ -13,6 +13,8 @@
 		1A6B95BE1ADD8EC5006A46CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B95BD1ADD8EC5006A46CA /* Images.xcassets */; };
 		1A6B95C11ADD8EC5006A46CA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B95BF1ADD8EC5006A46CA /* LaunchScreen.xib */; };
 		1A6B95CD1ADD8EC5006A46CA /* CustomTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B95CC1ADD8EC5006A46CA /* CustomTableTests.m */; };
+		1A6B95DC1ADD929D006A46CA /* CustomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B95DB1ADD929D006A46CA /* CustomTableViewController.m */; };
+		1A6B95E41ADDA259006A46CA /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B95E31ADDA259006A46CA /* CustomTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +39,10 @@
 		1A6B95C61ADD8EC5006A46CA /* CustomTableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomTableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A6B95CB1ADD8EC5006A46CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A6B95CC1ADD8EC5006A46CA /* CustomTableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableTests.m; sourceTree = "<group>"; };
+		1A6B95DA1ADD929D006A46CA /* CustomTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewController.h; sourceTree = "<group>"; };
+		1A6B95DB1ADD929D006A46CA /* CustomTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewController.m; sourceTree = "<group>"; };
+		1A6B95E21ADDA259006A46CA /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		1A6B95E31ADDA259006A46CA /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,7 @@
 		1A6B95A41ADD8EC5006A46CA = {
 			isa = PBXGroup;
 			children = (
+				1A6B95D61ADD922B006A46CA /* Models */,
 				1A6B95AF1ADD8EC5006A46CA /* CustomTable */,
 				1A6B95C91ADD8EC5006A46CA /* CustomTableTests */,
 				1A6B95AE1ADD8EC5006A46CA /* Products */,
@@ -112,6 +119,17 @@
 				1A6B95CB1ADD8EC5006A46CA /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1A6B95D61ADD922B006A46CA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1A6B95DA1ADD929D006A46CA /* CustomTableViewController.h */,
+				1A6B95DB1ADD929D006A46CA /* CustomTableViewController.m */,
+				1A6B95E21ADDA259006A46CA /* CustomTableViewCell.h */,
+				1A6B95E31ADDA259006A46CA /* CustomTableViewCell.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +233,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A6B95B61ADD8EC5006A46CA /* AppDelegate.m in Sources */,
+				1A6B95DC1ADD929D006A46CA /* CustomTableViewController.m in Sources */,
+				1A6B95E41ADDA259006A46CA /* CustomTableViewCell.m in Sources */,
 				1A6B95B31ADD8EC5006A46CA /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +430,7 @@
 				1A6B95D21ADD8EC5006A46CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1A6B95D31ADD8EC5006A46CA /* Build configuration list for PBXNativeTarget "CustomTableTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +439,7 @@
 				1A6B95D51ADD8EC5006A46CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
