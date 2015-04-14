@@ -19,6 +19,7 @@
     NSArray *recipeNames;
     NSArray *recipeImages;
     NSArray *prepTime;
+    BOOL receipeChecked[16];
 }
 
 - (void)viewDidLoad {
@@ -38,13 +39,20 @@
     return [recipeNames count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     static NSString *cellIdentifier = @"Cell";
     CustomTableViewCell *cell = (CustomTableViewCell *) [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     cell.nameLabel.text = [recipeNames objectAtIndex:indexPath.row];
     cell.prepTimeLable.text = [prepTime objectAtIndex:indexPath.row];
     cell.thumbnailImageView.image = [UIImage imageNamed:[recipeImages objectAtIndex:indexPath.row]];
+    
+    if (receipeChecked[indexPath.row]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     
     return cell;
 }
@@ -60,5 +68,24 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString * selectedRecipe = [recipeNames objectAtIndex:indexPath.row];
+    UIAlertView *messageAlert = [[UIAlertView alloc]initWithTitle:@"Row Selected" message:selectedRecipe delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    
+    // display alert message
+    [messageAlert show];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    // this code checks and unchecks when the item is selected.
+    if (receipeChecked[indexPath.row]) {
+        receipeChecked[indexPath.row] = NO;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    } else {
+        receipeChecked[indexPath.row] = YES;
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 @end
