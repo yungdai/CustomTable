@@ -3,27 +3,23 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
 		1A454D581AE55CB30061E90F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A454D571AE55CB30061E90F /* DetailViewController.m */; };
 		1A454D5B1AE568F40061E90F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A454D5A1AE568F40061E90F /* AboutViewController.m */; };
 		1A454D5E1AE5693B0061E90F /* about.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A454D5C1AE5693B0061E90F /* about.jpg */; };
 		1A454D5F1AE5693B0061E90F /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = 1A454D5D1AE5693B0061E90F /* about.html */; };
-		1A5EAE221AE57B500055DE73 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A5EAE211AE57B500055DE73 /* Recipe.m */; };
-=======
->>>>>>> parent of 8c6f2eb... Completed Chapters 10 and 11 in the book
 		1A6B95B31ADD8EC5006A46CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B95B21ADD8EC5006A46CA /* main.m */; };
 		1A6B95B61ADD8EC5006A46CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B95B51ADD8EC5006A46CA /* AppDelegate.m */; };
 		1A6B95BC1ADD8EC5006A46CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B95BA1ADD8EC5006A46CA /* Main.storyboard */; };
 		1A6B95BE1ADD8EC5006A46CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B95BD1ADD8EC5006A46CA /* Images.xcassets */; };
-		1A6B95C11ADD8EC5006A46CA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B95BF1ADD8EC5006A46CA /* LaunchScreen.xib */; };
 		1A6B95CD1ADD8EC5006A46CA /* CustomTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B95CC1ADD8EC5006A46CA /* CustomTableTests.m */; };
 		1A6B95DC1ADD929D006A46CA /* CustomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B95DB1ADD929D006A46CA /* CustomTableViewController.m */; };
 		1A6B95E41ADDA259006A46CA /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B95E31ADDA259006A46CA /* CustomTableViewCell.m */; };
 		1A6B969C1AE034B7006A46CA /* recipes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B969B1AE034B7006A46CA /* recipes.plist */; };
+		1A96B14E1AE18109002A60D3 /* MyLaunch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A96B14D1AE18109002A60D3 /* MyLaunch Screen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,17 +33,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
 		1A454D561AE55CB30061E90F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		1A454D571AE55CB30061E90F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		1A454D591AE568F40061E90F /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		1A454D5A1AE568F40061E90F /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		1A454D5C1AE5693B0061E90F /* about.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = about.jpg; sourceTree = "<group>"; };
 		1A454D5D1AE5693B0061E90F /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
-		1A5EAE201AE57B500055DE73 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
-		1A5EAE211AE57B500055DE73 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
-=======
->>>>>>> parent of 8c6f2eb... Completed Chapters 10 and 11 in the book
 		1A6B95AD1ADD8EC5006A46CA /* CustomTable.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomTable.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A6B95B11ADD8EC5006A46CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A6B95B21ADD8EC5006A46CA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -55,7 +46,6 @@
 		1A6B95B51ADD8EC5006A46CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1A6B95BB1ADD8EC5006A46CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1A6B95BD1ADD8EC5006A46CA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		1A6B95C01ADD8EC5006A46CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		1A6B95C61ADD8EC5006A46CA /* CustomTableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomTableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A6B95CB1ADD8EC5006A46CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A6B95CC1ADD8EC5006A46CA /* CustomTableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableTests.m; sourceTree = "<group>"; };
@@ -64,6 +54,8 @@
 		1A6B95E21ADDA259006A46CA /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		1A6B95E31ADDA259006A46CA /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		1A6B969B1AE034B7006A46CA /* recipes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = recipes.plist; sourceTree = "<group>"; };
+		1A96B14D1AE18109002A60D3 /* MyLaunch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "MyLaunch Screen.xib"; path = "../MyLaunch Screen.xib"; sourceTree = "<group>"; };
+		1A96B14F1AE1851E002A60D3 /* CustomTable.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CustomTable.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +98,12 @@
 		1A6B95AF1ADD8EC5006A46CA /* CustomTable */ = {
 			isa = PBXGroup;
 			children = (
+				1A96B14F1AE1851E002A60D3 /* CustomTable.entitlements */,
 				1A6B95B41ADD8EC5006A46CA /* AppDelegate.h */,
 				1A6B95B51ADD8EC5006A46CA /* AppDelegate.m */,
 				1A6B95BA1ADD8EC5006A46CA /* Main.storyboard */,
 				1A6B95BD1ADD8EC5006A46CA /* Images.xcassets */,
-				1A6B95BF1ADD8EC5006A46CA /* LaunchScreen.xib */,
+				1A96B14D1AE18109002A60D3 /* MyLaunch Screen.xib */,
 				1A6B95B01ADD8EC5006A46CA /* Supporting Files */,
 			);
 			path = CustomTable;
@@ -119,6 +112,8 @@
 		1A6B95B01ADD8EC5006A46CA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1A454D5C1AE5693B0061E90F /* about.jpg */,
+				1A454D5D1AE5693B0061E90F /* about.html */,
 				1A6B969B1AE034B7006A46CA /* recipes.plist */,
 				1A6B95B11ADD8EC5006A46CA /* Info.plist */,
 				1A6B95B21ADD8EC5006A46CA /* main.m */,
@@ -150,15 +145,10 @@
 				1A6B95DB1ADD929D006A46CA /* CustomTableViewController.m */,
 				1A6B95E21ADDA259006A46CA /* CustomTableViewCell.h */,
 				1A6B95E31ADDA259006A46CA /* CustomTableViewCell.m */,
-<<<<<<< HEAD
 				1A454D561AE55CB30061E90F /* DetailViewController.h */,
 				1A454D571AE55CB30061E90F /* DetailViewController.m */,
 				1A454D591AE568F40061E90F /* AboutViewController.h */,
 				1A454D5A1AE568F40061E90F /* AboutViewController.m */,
-				1A5EAE201AE57B500055DE73 /* Recipe.h */,
-				1A5EAE211AE57B500055DE73 /* Recipe.m */,
-=======
->>>>>>> parent of 8c6f2eb... Completed Chapters 10 and 11 in the book
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -212,6 +202,11 @@
 				TargetAttributes = {
 					1A6B95AC1ADD8EC5006A46CA = {
 						CreatedOnToolsVersion = 6.3;
+						SystemCapabilities = {
+							com.apple.OMC = {
+								enabled = 0;
+							};
+						};
 					};
 					1A6B95C51ADD8EC5006A46CA = {
 						CreatedOnToolsVersion = 6.3;
@@ -220,7 +215,7 @@
 				};
 			};
 			buildConfigurationList = 1A6B95A81ADD8EC5006A46CA /* Build configuration list for PBXProject "CustomTable" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -243,10 +238,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A454D5F1AE5693B0061E90F /* about.html in Resources */,
+				1A454D5E1AE5693B0061E90F /* about.jpg in Resources */,
 				1A6B95BC1ADD8EC5006A46CA /* Main.storyboard in Resources */,
-				1A6B95C11ADD8EC5006A46CA /* LaunchScreen.xib in Resources */,
 				1A6B969C1AE034B7006A46CA /* recipes.plist in Resources */,
 				1A6B95BE1ADD8EC5006A46CA /* Images.xcassets in Resources */,
+				1A96B14E1AE18109002A60D3 /* MyLaunch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,12 +261,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				1A454D5B1AE568F40061E90F /* AboutViewController.m in Sources */,
-				1A5EAE221AE57B500055DE73 /* Recipe.m in Sources */,
 				1A454D581AE55CB30061E90F /* DetailViewController.m in Sources */,
-=======
->>>>>>> parent of 8c6f2eb... Completed Chapters 10 and 11 in the book
 				1A6B95B61ADD8EC5006A46CA /* AppDelegate.m in Sources */,
 				1A6B95DC1ADD929D006A46CA /* CustomTableViewController.m in Sources */,
 				1A6B95E41ADDA259006A46CA /* CustomTableViewCell.m in Sources */,
@@ -302,14 +295,6 @@
 				1A6B95BB1ADD8EC5006A46CA /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1A6B95BF1ADD8EC5006A46CA /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1A6B95C01ADD8EC5006A46CA /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -400,9 +385,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = CustomTable/CustomTable.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CustomTable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -411,9 +400,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = CustomTable/CustomTable.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = CustomTable/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
