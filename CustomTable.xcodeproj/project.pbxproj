@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A2C90121AE5974F004EDBA6 /* Recipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C90111AE5974F004EDBA6 /* Recipe.m */; };
 		1A454D581AE55CB30061E90F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A454D571AE55CB30061E90F /* DetailViewController.m */; };
 		1A454D5B1AE568F40061E90F /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A454D5A1AE568F40061E90F /* AboutViewController.m */; };
 		1A454D5E1AE5693B0061E90F /* about.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1A454D5C1AE5693B0061E90F /* about.jpg */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A2C90101AE5974F004EDBA6 /* Recipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recipe.h; sourceTree = "<group>"; };
+		1A2C90111AE5974F004EDBA6 /* Recipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recipe.m; sourceTree = "<group>"; };
 		1A454D561AE55CB30061E90F /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		1A454D571AE55CB30061E90F /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		1A454D591AE568F40061E90F /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				1A454D571AE55CB30061E90F /* DetailViewController.m */,
 				1A454D591AE568F40061E90F /* AboutViewController.h */,
 				1A454D5A1AE568F40061E90F /* AboutViewController.m */,
+				1A2C90101AE5974F004EDBA6 /* Recipe.h */,
+				1A2C90111AE5974F004EDBA6 /* Recipe.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -262,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A454D5B1AE568F40061E90F /* AboutViewController.m in Sources */,
+				1A2C90121AE5974F004EDBA6 /* Recipe.m in Sources */,
 				1A454D581AE55CB30061E90F /* DetailViewController.m in Sources */,
 				1A6B95B61ADD8EC5006A46CA /* AppDelegate.m in Sources */,
 				1A6B95DC1ADD929D006A46CA /* CustomTableViewController.m in Sources */,
