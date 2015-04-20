@@ -8,6 +8,7 @@
 
 #import "CustomTableViewController.h"
 #import "CustomTableViewCell.h"
+#import "DetailViewController.h"
 
 @interface CustomTableViewController ()
 
@@ -96,6 +97,22 @@
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+
+// adding code for the segue fromthe DetailViewController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
+        // the value for indexPath will be whiched ever row from self.tableView row was selected
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        // create a new DetailViewController object and give it the value of the segue into the decinstaion
+        DetailViewController *destViewController = segue.destinationViewController;
+        destViewController.recipeName = [recipeNames objectAtIndex:indexPath.row];
+        
+    }
+
 }
 
 @end
