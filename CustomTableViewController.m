@@ -8,8 +8,11 @@
 
 #import "CustomTableViewController.h"
 #import "CustomTableViewCell.h"
+<<<<<<< HEAD
 #import "DetailViewController.h"
 #import "Recipe.h"
+=======
+>>>>>>> parent of 8c6f2eb... Completed Chapters 10 and 11 in the book
 
 @interface CustomTableViewController ()
 
@@ -125,6 +128,7 @@
 }
 
 
+<<<<<<< HEAD
 // adding code for the segue fromthe DetailViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -136,6 +140,25 @@
         
         
     }
+=======
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString * selectedRecipe = [recipeNames objectAtIndex:indexPath.row];
+    UIAlertView *messageAlert = [[UIAlertView alloc]initWithTitle:@"Row Selected" message:selectedRecipe delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+    
+    // display alert message
+    [messageAlert show];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    // this code checks and unchecks when the item is selected.
+    if (receipeChecked[indexPath.row]) {
+        receipeChecked[indexPath.row] = NO;
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    } else {
+        receipeChecked[indexPath.row] = YES;
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+>>>>>>> parent of 8c6f2eb... Completed Chapters 10 and 11 in the book
 }
 
 @end
