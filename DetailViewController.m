@@ -17,7 +17,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Set the Label text with the selected recipe
-    self.recipeLabel.text = self.recipeName;
+    self.title= self.recipe.name;
+    self.prepTimeLabel.text  = self.recipe.prepTime;
+    self.recipeImageView.image = [UIImage imageNamed:self.recipe.image];
+    
+    NSMutableString *ingredientsText = [NSMutableString string];
+    
+    for (NSString * ingredient in self.recipe.ingredients) {
+        [ingredientsText appendFormat: @"%@\n", ingredient];
+    }
+    
+    self.ingredientsTextView.text = ingredientsText;
 }
 
 - (void)didReceiveMemoryWarning {
