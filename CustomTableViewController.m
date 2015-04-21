@@ -148,7 +148,6 @@
     return cell;
 }
 
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     //return the number of sections.
     return 1;
@@ -169,7 +168,7 @@
         DetailViewController *destViewController = segue.destinationViewController;
         
         Recipe *recipe = [recipes objectAtIndex:indexPath.row];
-        destViewController.recipeName = recipe.name;
+        destViewController.recipe = recipe;
     }
 
 }

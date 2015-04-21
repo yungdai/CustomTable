@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "CustomTableViewCell.h"
 
 @interface DetailViewController ()
 
@@ -21,28 +22,28 @@
     self.prepTimeLabel.text  = self.recipe.prepTime;
     self.recipeImageView.image = [UIImage imageNamed:self.recipe.image];
     
-    NSMutableString *ingredientsText = [NSMutableString string];
+    // setting self.ingredientsTableView.delegate to the DetailViewController
+    self.ingredientsTableView.delegate = self;
+    self.ingredientsTableView.dataSource = self;
+    self.ingredientsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     
-    for (NSString * ingredient in self.recipe.ingredients) {
-        [ingredientsText appendFormat: @"%@\n", ingredient];
-    }
+}
+
+
+// two required methods for the UITableViewDataSource protocol
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.recipe.ingredients count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"IngredientList";
+    UITableViewCell *cell = (UITableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    cell.textLabel.text = self.recipe.ingredients[indexPath.row];
     
-    self.ingredientsTextView.text = ingredientsText;
+    return cell;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
