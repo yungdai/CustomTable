@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "CustomTableViewCell.h"
 
 @interface DetailViewController ()
 
@@ -17,22 +18,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Set the Label text with the selected recipe
-    self.recipeLabel.text = self.recipeName;
+    self.title= self.recipe.name;
+    self.prepTimeLabel.text  = self.recipe.prepTime;
+    self.recipeImageView.image = [UIImage imageNamed:self.recipe.image];
+    
+    // setting self.ingredientsTableView.delegate to the DetailViewController
+    self.ingredientsTableView.delegate = self;
+    self.ingredientsTableView.dataSource = self;
+    self.ingredientsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+// two required methods for the UITableViewDataSource protocol
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.recipe.ingredients count];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"IngredientList";
+    UITableViewCell *cell = (UITableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    cell.textLabel.text = self.recipe.ingredients[indexPath.row];
+    
+    return cell;
 }
-*/
 
 @end
