@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface RecipeCollectionViewCell : UICollectionViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *recipeImageView;
 
 @end
