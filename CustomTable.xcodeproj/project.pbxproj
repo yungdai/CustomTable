@@ -81,6 +81,7 @@
 		1A6B95A41ADD8EC5006A46CA = {
 			isa = PBXGroup;
 			children = (
+				1A880AEE1AE7E7B80012582F /* Controllers */,
 				1A6B95D61ADD922B006A46CA /* Models */,
 				1A6B95AF1ADD8EC5006A46CA /* CustomTable */,
 				1A6B95C91ADD8EC5006A46CA /* CustomTableTests */,
@@ -142,18 +143,25 @@
 		1A6B95D61ADD922B006A46CA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1A6B95DA1ADD929D006A46CA /* CustomTableViewController.h */,
-				1A6B95DB1ADD929D006A46CA /* CustomTableViewController.m */,
 				1A6B95E21ADDA259006A46CA /* CustomTableViewCell.h */,
 				1A6B95E31ADDA259006A46CA /* CustomTableViewCell.m */,
-				1A454D561AE55CB30061E90F /* DetailViewController.h */,
-				1A454D571AE55CB30061E90F /* DetailViewController.m */,
-				1A454D591AE568F40061E90F /* AboutViewController.h */,
-				1A454D5A1AE568F40061E90F /* AboutViewController.m */,
 				1A2C90101AE5974F004EDBA6 /* Recipe.h */,
 				1A2C90111AE5974F004EDBA6 /* Recipe.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		1A880AEE1AE7E7B80012582F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A454D591AE568F40061E90F /* AboutViewController.h */,
+				1A454D5A1AE568F40061E90F /* AboutViewController.m */,
+				1A6B95DA1ADD929D006A46CA /* CustomTableViewController.h */,
+				1A6B95DB1ADD929D006A46CA /* CustomTableViewController.m */,
+				1A454D561AE55CB30061E90F /* DetailViewController.h */,
+				1A454D571AE55CB30061E90F /* DetailViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
