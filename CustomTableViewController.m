@@ -19,6 +19,11 @@
 
 {
     NSArray *recipes;
+    // declare an array for the search results
+    NSArray *searchResults;
+    
+    // declare a variable for the search bar UI element
+    UISearchController *searchController;
 }
 
 - (void)viewDidLoad {
@@ -58,7 +63,7 @@
     recipe5.ingredients = [NSArray arrayWithObjects:@"1 unsliced loaf (1 pound) French bread", @"4 tablespoons butter", @"2 tablespoons mayonnaise", @"8 thin slices deli ham", @"1 large tomato, sliced", @"1 small onion", @"8 eggs", @"8 slices cheddar cheese", nil];
     
     Recipe *recipe6 = [Recipe new];
-    recipe6.name = @"Creme Brelee";
+    recipe6.name = @"Creme Brûlée";
     recipe6.prepTime = @"1 hour";
     recipe6.image = @"creme_brelee.jpg";
     recipe6.ingredients = [NSArray arrayWithObjects:@"1 quart heavy cream", @"1 vanilla bean, split and scraped", @"1 cup vanilla sugar", @"6 large egg yolks", @"2 quarts hot water", nil];
@@ -125,10 +130,28 @@
     
     recipes = [NSArray arrayWithObjects:recipe1, recipe2, recipe3, recipe4, recipe5, recipe6, recipe7, recipe8, recipe9, recipe10, recipe11, recipe12, recipe13, recipe14, recipe15, recipe16, nil];
     
-}
     
+    // adding in the search bar
+    searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    [searchController.searchBar sizeToFit];
+    self.tableView.tableHeaderView = searchController.searchBar;
+    self.definesPresentationContext = YES;
+    
+    
+    // check self for searchResultsUpdater
+    searchController.searchResultsUpdater = self;
+    searchController.dimsBackgroundDuringPresentation = NO;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [recipes count];
+    
+    // modified the tableVIew results to return the count for the amount of rows of the search results
+    
+    if (searchController.active){
+        return searchResults.count;
+    } else {
+        return [recipes count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -140,7 +163,14 @@
         cell = [[CustomTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    Recipe *recipe = [recipes objectAtIndex:indexPath.row];
+    
+    // code to see if the search bar is active, then to return back only the objects that have been searched.
+    Recipe *recipe;
+    if (searchController.active) {
+        recipe = [searchResults objectAtIndex:indexPath.row];
+    } else {
+        recipe = [recipes objectAtIndex:indexPath.row];
+    }
     cell.nameLabel.text = recipe.name;
     cell.thumbnailImageView.image = [UIImage imageNamed:recipe.image];
     cell.prepTimeLabel.text = recipe.prepTime;
@@ -158,7 +188,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+// add a method for content fildering of the search function
 
+- (void)filterContentForSearchText:(NSString *)searchText {
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
+    searchResults = [recipes filteredArrayUsingPredicate:resultPredicate];
+}
 
 // adding code for the segue fromthe DetailViewController
 
@@ -166,11 +201,24 @@
     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         DetailViewController *destViewController = segue.destinationViewController;
-        
-        Recipe *recipe = [recipes objectAtIndex:indexPath.row];
+        // check if the search controller is active. If the user is doing a search, we retrieve the recipe from the search result rather than the recipes array
+        Recipe *recipe;
+        if (searchController.active) {
+            recipe = [searchResults objectAtIndex:indexPath.row];
+        } else {
+            recipe = [recipes objectAtIndex:indexPath.row];
+        }
         destViewController.recipe = recipe;
     }
 
 }
+
+
+// required methodd for the UISearchResultsUpdating protocol
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    [self filterContentForSearchText:searchController.searchBar.text];
+     [self.tableView reloadData];
+}
+
 
 @end
