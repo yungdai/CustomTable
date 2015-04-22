@@ -193,7 +193,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
-//        NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems];
+        //NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems];
         DetailViewController *destViewController = segue.destinationViewController;
         Recipe *recipe;
         destViewController.recipe = recipe;
