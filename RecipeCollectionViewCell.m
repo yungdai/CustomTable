@@ -10,4 +10,20 @@
 
 @implementation RecipeCollectionViewCell
 
+- (void)awakeFromNib
+{
+    
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self)
+    {
+        self.recipeImageView = [[UIImageView alloc] initWithFrame:self.bounds];
+        [self addSubview:self.recipeImageView];
+    }
+    return self;
+}
+
 @end
