@@ -193,23 +193,28 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 //  this method is called when you select the collectionView item, known as the selector method
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     // retrieve the Recipe object with the array of recipe objects into this method
     Recipe *recipe = recipes[indexPath.row];
     
-    
+    // peform the seque called "showRecipeDetail"
     [self performSegueWithIdentifier:@"showRecipeDetail" sender:recipe];
 }
 #pragma mark <UICollectionViewDelegate>
 
-// adding code for the segue from the DetailViewController
+// adding code to prepare for the segue from the DetailViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
-        DetailViewController *destViewController = segue.destinationViewController;
-        Recipe *recipe = (Recipe *)sender;
-        destViewController.recipe = recipe;
+        NSArray *recipeArray = [self.collectionView indexPathsForSelectedItems];
+        // check to make sure that the array value is greater than 0
+        if (recipeArray.count > 0)
+        {
+            NSIndexPath *indexPath = recipeArray[0];
+            DetailViewController *destViewController = segue.destinationViewController;
+            Recipe *recipe = recipes[indexPath.row];
+            destViewController.recipe = recipe;
+        }
     }
 }
 
