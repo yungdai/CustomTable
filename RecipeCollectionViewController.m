@@ -177,7 +177,9 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    RecipeCollectionViewCell *cell = (RecipeCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    static NSString *cellID = @"Cell";
+    RecipeCollectionViewCell *cell = (RecipeCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     
     
     // Configure the cell
