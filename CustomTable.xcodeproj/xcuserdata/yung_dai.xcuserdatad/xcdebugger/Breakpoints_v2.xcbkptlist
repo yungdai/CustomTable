@@ -2,4 +2,54 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RecipeCollectionViewCell.h"
+            timestampString = "451509676.99972"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "recipeImageView"
+            landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RecipeCollectionViewCell recipeImageView]"
+                  moduleName = "CustomTable"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yungdai/Documents/Bitmaker%20Labs/Objective-C/April14Assignment/CustomTable/RecipeCollectionViewCell.h"
+                  timestampString = "451509677.003649"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RecipeCollectionViewCell setRecipeImageView:]"
+                  moduleName = "CustomTable"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yungdai/Documents/Bitmaker%20Labs/Objective-C/April14Assignment/CustomTable/RecipeCollectionViewCell.h"
+                  timestampString = "451509677.003964"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -1,41 +1,52 @@
 //
-//  CustomTableViewController.m
+//  RecipeCollectionViewController.m
 //  CustomTable
 //
-//  Created by Yung Dai on 2015-04-14.
+//  Created by Yung Dai on 2015-04-22.
 //  Copyright (c) 2015 Yung Dai. All rights reserved.
 //
 
-#import "CustomTableViewController.h"
-#import "CustomTableViewCell.h"
+#import "RecipeCollectionViewController.h"
 #import "DetailViewController.h"
+#import "RecipeCollectionViewCell.h"
 #import "Recipe.h"
 
-@interface CustomTableViewController ()
+@interface RecipeCollectionViewController ()
 
 @end
 
-@implementation CustomTableViewController
+@implementation RecipeCollectionViewController {
 
-{
     NSArray *recipes;
-    // declare an array for the search results
+    
     NSArray *searchResults;
     
     // declare a variable for the search bar UI element
     UISearchController *searchController;
+    
 }
+
+static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Uncomment the following line to preserve selection between presentations
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Register cell classes
+    [self.collectionView registerClass:[RecipeCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+
     // Initialize the recipes array
+    
+    
     Recipe *recipe1 = [Recipe new];
     recipe1.name = @"Egg Benedict";
     recipe1.prepTime = @"30 min";
     recipe1.image = @"egg_benedict.jpg";
     recipe1.ingredients = [NSArray arrayWithObjects:@"2 fresh English muffins", @"4 eggs", @"4 rashers of back bacon", @"2 egg yolks", @"1 tbsp of lemon juice", @"125 g of butter", @"salt and pepper", nil];
     
-
+    
     
     Recipe *recipe2 = [Recipe new];
     recipe2.name = @"Mushroom Risotto";
@@ -63,7 +74,7 @@
     recipe5.ingredients = [NSArray arrayWithObjects:@"1 unsliced loaf (1 pound) French bread", @"4 tablespoons butter", @"2 tablespoons mayonnaise", @"8 thin slices deli ham", @"1 large tomato, sliced", @"1 small onion", @"8 eggs", @"8 slices cheddar cheese", nil];
     
     Recipe *recipe6 = [Recipe new];
-    recipe6.name = @"Creme Brelee";
+    recipe6.name = @"Creme Brûlée";
     recipe6.prepTime = @"1 hour";
     recipe6.image = @"creme_brelee.jpg";
     recipe6.ingredients = [NSArray arrayWithObjects:@"1 quart heavy cream", @"1 vanilla bean, split and scraped", @"1 cup vanilla sugar", @"6 large egg yolks", @"2 quarts hot water", nil];
@@ -97,7 +108,7 @@
     recipe11.prepTime = @"20 min";
     recipe11.image = @"noodle_with_bbq_pork.jpg";
     recipe11.ingredients = [NSArray arrayWithObjects:@"1 pack of Instant Noodle", @"BBQ pork", @"Salt and Pepper", nil];
-                            
+    
     Recipe *recipe12 = [Recipe new];
     recipe12.name = @"Japanese Noodle with Pork";
     recipe12.prepTime = @"20 min";
@@ -130,94 +141,110 @@
     
     recipes = [NSArray arrayWithObjects:recipe1, recipe2, recipe3, recipe4, recipe5, recipe6, recipe7, recipe8, recipe9, recipe10, recipe11, recipe12, recipe13, recipe14, recipe15, recipe16, nil];
     
+
     
-    // adding in the search bar
-    searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    [searchController.searchBar sizeToFit];
-    self.tableView.tableHeaderView = searchController.searchBar;
-    self.definesPresentationContext = YES;
-    
-    
-    // check self for searchResultsUpdater
-    searchController.searchResultsUpdater = self;
-    searchController.dimsBackgroundDuringPresentation = NO;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    // modified the tableVIew results to return the count for the amount of rows of the search results
-    
-    if (searchController.active){
-        return searchResults.count;
-    } else {
-        return [recipes count];
-    }
-}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"CustomTableCell";
-    CustomTableViewCell *cell = (CustomTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[CustomTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    
-    // code to see if the search bar is active, then to return back only the objects that have been searched.
-    Recipe *recipe;
-    if (searchController.active) {
-        recipe = [searchResults objectAtIndex:indexPath.row];
-    } else {
-        recipe = [recipes objectAtIndex:indexPath.row];
-    }
-    cell.nameLabel.text = recipe.name;
-    cell.thumbnailImageView.image = [UIImage imageNamed:recipe.image];
-    cell.prepTimeLabel.text = recipe.prepTime;
-    
-    return cell;
-}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //return the number of sections.
-    return 1;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-// add a method for content fildering of the search function
+/*
+#pragma mark - Navigation
 
-- (void)filterContentForSearchText:(NSString *)searchText {
-    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
-    searchResults = [recipes filteredArrayUsingPredicate:resultPredicate];
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+#pragma mark <UICollectionViewDataSource>
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+
+    return 1;
 }
 
-// adding code for the segue fromthe DetailViewController
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+
+    return [recipes count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    RecipeCollectionViewCell *cell = (RecipeCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    
+    // Configure the cell
+    // retrieve the Recipe object with the array of recipe objects into this method
+    Recipe *recipe = [recipes objectAtIndex:indexPath.row];
+    
+    // set the cell with the each object being the recipe.image
+    cell.recipeImageView.image = [UIImage imageNamed:recipe.image];
+    cell.contentView.backgroundColor = [UIColor redColor];
+    return cell;
+}
+
+
+//  this method is called when you select the collectionView item, known as the selector method
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    // retrieve the Recipe object with the array of recipe objects into this method
+    Recipe *recipe = recipes[indexPath.row];
+    
+    // peform the seque called "showRecipeDetail"
+    [self performSegueWithIdentifier:@"showRecipeDetail" sender:recipe];
+}
+#pragma mark <UICollectionViewDelegate>
+
+// adding code to prepare for the segue from the DetailViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        DetailViewController *destViewController = segue.destinationViewController;
-        // check if the search controller is active. If the user is doing a search, we retrieve the recipe from the search result rather than the recipes array
-        Recipe *recipe;
-        if (searchController.active) {
-            recipe = [searchResults objectAtIndex:indexPath.row];
-        } else {
-            recipe = [recipes objectAtIndex:indexPath.row];
+        NSArray *recipeArray = [self.collectionView indexPathsForSelectedItems];
+        // check to make sure that the array value is greater than 0
+        if (recipeArray.count > 0)
+        {
+            NSIndexPath *indexPath = recipeArray[0];
+            DetailViewController *destViewController = segue.destinationViewController;
+            Recipe *recipe = recipes[indexPath.row];
+            destViewController.recipe = recipe;
         }
-        destViewController.recipe = recipe;
     }
 }
 
+/*
+// Uncomment this method to specify if the specified item should be highlighted during tracking
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+	return YES;
+}
+*/
 
-// required methodd for the UISearchResultsUpdating protocol
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    [self filterContentForSearchText:searchController.searchBar.text];
-     [self.tableView reloadData];
+/*
+// Uncomment this method to specify if the specified item should be selected
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+*/
+
+/*
+// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
+	return NO;
 }
 
+- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+	return NO;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+	
+}
+*/
 
 @end
