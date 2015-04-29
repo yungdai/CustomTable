@@ -63,7 +63,7 @@
     recipe5.ingredients = [NSArray arrayWithObjects:@"1 unsliced loaf (1 pound) French bread", @"4 tablespoons butter", @"2 tablespoons mayonnaise", @"8 thin slices deli ham", @"1 large tomato, sliced", @"1 small onion", @"8 eggs", @"8 slices cheddar cheese", nil];
     
     Recipe *recipe6 = [Recipe new];
-    recipe6.name = @"Creme Brelee";
+    recipe6.name = @"Creme Brûlée";
     recipe6.prepTime = @"1 hour";
     recipe6.image = @"creme_brelee.jpg";
     recipe6.ingredients = [NSArray arrayWithObjects:@"1 quart heavy cream", @"1 vanilla bean, split and scraped", @"1 cup vanilla sugar", @"6 large egg yolks", @"2 quarts hot water", nil];
@@ -210,6 +210,7 @@
         }
         destViewController.recipe = recipe;
     }
+
 }
 
 

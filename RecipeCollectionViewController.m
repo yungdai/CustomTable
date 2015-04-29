@@ -35,7 +35,7 @@ static NSString * const reuseIdentifier = @"Cell";
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Register cell classes
-    [self.collectionView registerClass:[RecipeCollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 
     // Initialize the recipes array
     
@@ -178,43 +178,27 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    RecipeCollectionViewCell *cell = (RecipeCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    static NSString *cellID = @"Cell";
+    RecipeCollectionViewCell *cell = (RecipeCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     
     
     // Configure the cell
-    // retrieve the Recipe object with the array of recipe objects into this method
-    Recipe *recipe = [recipes objectAtIndex:indexPath.row];
-    
-    // set the cell with the each object being the recipe.image
+    Recipe *recipe;
+    recipe = [recipes objectAtIndex:indexPath.row];
     cell.recipeImageView.image = [UIImage imageNamed:recipe.image];
-    cell.contentView.backgroundColor = [UIColor redColor];
     return cell;
 }
 
-
-//  this method is called when you select the collectionView item, known as the selector method
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    // retrieve the Recipe object with the array of recipe objects into this method
-    Recipe *recipe = recipes[indexPath.row];
-    
-    // peform the seque called "showRecipeDetail"
-    [self performSegueWithIdentifier:@"showRecipeDetail" sender:recipe];
-}
 #pragma mark <UICollectionViewDelegate>
 
-// adding code to prepare for the segue from the DetailViewController
+// adding code for the segue from the DetailViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
-        NSArray *recipeArray = [self.collectionView indexPathsForSelectedItems];
-        // check to make sure that the array value is greater than 0
-        if (recipeArray.count > 0)
-        {
-            NSIndexPath *indexPath = recipeArray[0];
-            DetailViewController *destViewController = segue.destinationViewController;
-            Recipe *recipe = recipes[indexPath.row];
-            destViewController.recipe = recipe;
-        }
+//        NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems];
+        DetailViewController *destViewController = segue.destinationViewController;
+        Recipe *recipe;
+        destViewController.recipe = recipe;
     }
 }
 
