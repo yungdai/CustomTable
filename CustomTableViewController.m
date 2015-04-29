@@ -188,7 +188,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-// add a method for content fildering of the search function
+// add a method for content filtering of the search function
 
 - (void)filterContentForSearchText:(NSString *)searchText {
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];

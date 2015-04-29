@@ -26,7 +26,6 @@
     
 }
 
-static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,8 +33,6 @@ static NSString * const reuseIdentifier = @"Cell";
     // Uncomment the following line to preserve selection between presentations
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 
     // Initialize the recipes array
     
@@ -181,23 +178,29 @@ static NSString * const reuseIdentifier = @"Cell";
     static NSString *cellID = @"Cell";
     RecipeCollectionViewCell *cell = (RecipeCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     
-    
     // Configure the cell
-    Recipe *recipe;
-    recipe = [recipes objectAtIndex:indexPath.row];
+    Recipe *recipe = [recipes objectAtIndex:indexPath.row];
     cell.recipeImageView.image = [UIImage imageNamed:recipe.image];
+    cell.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photo-frame"]];
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
 
+
+// handler method to detect selection of cell, then call the segue when selected.
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"showRecipeDetail" sender:nil];
+}
+
+
 // adding code for the segue from the DetailViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
-//        NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems];
+        NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems][0];
         DetailViewController *destViewController = segue.destinationViewController;
-        Recipe *recipe;
+        Recipe *recipe = recipes[indexPath.row];
         destViewController.recipe = recipe;
     }
 }
