@@ -17,12 +17,12 @@
 		1A6B95B31ADD8EC5006A46CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B95B21ADD8EC5006A46CA /* main.m */; };
 		1A6B95B61ADD8EC5006A46CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B95B51ADD8EC5006A46CA /* AppDelegate.m */; };
 		1A6B95BC1ADD8EC5006A46CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B95BA1ADD8EC5006A46CA /* Main.storyboard */; };
-		1A6B95BE1ADD8EC5006A46CA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B95BD1ADD8EC5006A46CA /* Images.xcassets */; };
 		1A6B95CD1ADD8EC5006A46CA /* CustomTableTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B95CC1ADD8EC5006A46CA /* CustomTableTests.m */; };
 		1A6B95DC1ADD929D006A46CA /* CustomTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B95DB1ADD929D006A46CA /* CustomTableViewController.m */; };
 		1A6B95E41ADDA259006A46CA /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6B95E31ADDA259006A46CA /* CustomTableViewCell.m */; };
 		1A6B969C1AE034B7006A46CA /* recipes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A6B969B1AE034B7006A46CA /* recipes.plist */; };
 		1A96B14E1AE18109002A60D3 /* MyLaunch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A96B14D1AE18109002A60D3 /* MyLaunch Screen.xib */; };
+		1ADD9BFD1AF164AA00F3E323 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ADD9BFC1AF164AA00F3E323 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,6 @@
 		1A6B95B41ADD8EC5006A46CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1A6B95B51ADD8EC5006A46CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		1A6B95BB1ADD8EC5006A46CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1A6B95BD1ADD8EC5006A46CA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		1A6B95C61ADD8EC5006A46CA /* CustomTableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomTableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A6B95CB1ADD8EC5006A46CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A6B95CC1ADD8EC5006A46CA /* CustomTableTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTableTests.m; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		1A6B95E31ADDA259006A46CA /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		1A6B969B1AE034B7006A46CA /* recipes.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = recipes.plist; sourceTree = "<group>"; };
 		1A96B14D1AE18109002A60D3 /* MyLaunch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = "MyLaunch Screen.xib"; path = "../MyLaunch Screen.xib"; sourceTree = "<group>"; };
+		1ADD9BFC1AF164AA00F3E323 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,6 @@
 				1A6B95B41ADD8EC5006A46CA /* AppDelegate.h */,
 				1A6B95B51ADD8EC5006A46CA /* AppDelegate.m */,
 				1A6B95BA1ADD8EC5006A46CA /* Main.storyboard */,
-				1A6B95BD1ADD8EC5006A46CA /* Images.xcassets */,
 				1A96B14D1AE18109002A60D3 /* MyLaunch Screen.xib */,
 				1A6B95B01ADD8EC5006A46CA /* Supporting Files */,
 			);
@@ -120,6 +119,7 @@
 		1A6B95B01ADD8EC5006A46CA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1ADD9BFC1AF164AA00F3E323 /* Images.xcassets */,
 				1A454D5C1AE5693B0061E90F /* about.jpg */,
 				1A454D5D1AE5693B0061E90F /* about.html */,
 				1A6B969B1AE034B7006A46CA /* recipes.plist */,
@@ -262,8 +262,8 @@
 				1A454D5F1AE5693B0061E90F /* about.html in Resources */,
 				1A454D5E1AE5693B0061E90F /* about.jpg in Resources */,
 				1A6B95BC1ADD8EC5006A46CA /* Main.storyboard in Resources */,
+				1ADD9BFD1AF164AA00F3E323 /* Images.xcassets in Resources */,
 				1A6B969C1AE034B7006A46CA /* recipes.plist in Resources */,
-				1A6B95BE1ADD8EC5006A46CA /* Images.xcassets in Resources */,
 				1A96B14E1AE18109002A60D3 /* MyLaunch Screen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

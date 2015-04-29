@@ -182,6 +182,7 @@
     Recipe *recipe = [recipes objectAtIndex:indexPath.row];
     cell.recipeImageView.image = [UIImage imageNamed:recipe.image];
     cell.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photo-frame"]];
+    cell.recipeLabel.text = recipe.name;
     return cell;
 }
 
