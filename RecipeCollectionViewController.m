@@ -138,6 +138,17 @@
     
     recipes = [NSArray arrayWithObjects:recipe1, recipe2, recipe3, recipe4, recipe5, recipe6, recipe7, recipe8, recipe9, recipe10, recipe11, recipe12, recipe13, recipe14, recipe15, recipe16, nil];
     
+    
+    // adding in the search bar
+    searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    [searchController.searchBar sizeToFit];
+//    self.collectionView. = searchController.searchBar;
+    self.definesPresentationContext = YES;
+    
+    
+    // check self for searchResultsUpdater
+//    searchController.searchResultsUpdater = self;
+//    searchController.dimsBackgroundDuringPresentation = NO;
 
     
 }

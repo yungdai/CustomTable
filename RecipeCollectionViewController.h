@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecipeCollectionViewController : UICollectionViewController
+@interface RecipeCollectionViewController : UICollectionViewController<UISearchResultsUpdating>
 
 @end

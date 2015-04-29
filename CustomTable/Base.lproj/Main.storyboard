@@ -14,7 +14,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Jhj-zW-awE">
                             <size key="itemSize" width="100" height="100"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
@@ -43,6 +43,10 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U5H-ME-ZjM">
+                            <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="pwD-Bl-FXd" id="Hbv-8d-WXF"/>
                             <outlet property="delegate" destination="pwD-Bl-FXd" id="hau-XS-eHQ"/>
@@ -50,10 +54,19 @@
                     </collectionView>
                     <navigationItem key="navigationItem" title="Recipe Photo" id="kXe-Ew-lwD"/>
                     <connections>
+                        <outlet property="searchDisplayController" destination="TIM-t5-Drp" id="JgK-Tt-e5j"/>
                         <segue destination="3Kq-g3-eK0" kind="push" identifier="showRecipeDetail" id="Bdy-je-5VN"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8vC-Ee-Y3R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="TIM-t5-Drp">
+                    <connections>
+                        <outlet property="delegate" destination="pwD-Bl-FXd" id="5qo-Id-w4h"/>
+                        <outlet property="searchContentsController" destination="pwD-Bl-FXd" id="OgN-aV-X2n"/>
+                        <outlet property="searchResultsDataSource" destination="pwD-Bl-FXd" id="TV9-gg-SbA"/>
+                        <outlet property="searchResultsDelegate" destination="pwD-Bl-FXd" id="zc3-Xs-88v"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="1199" y="457"/>
         </scene>
