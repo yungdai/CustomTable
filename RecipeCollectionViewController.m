@@ -1,41 +1,52 @@
 //
-//  CustomTableViewController.m
+//  RecipeCollectionViewController.m
 //  CustomTable
 //
-//  Created by Yung Dai on 2015-04-14.
+//  Created by Yung Dai on 2015-04-22.
 //  Copyright (c) 2015 Yung Dai. All rights reserved.
 //
 
-#import "CustomTableViewController.h"
-#import "CustomTableViewCell.h"
+#import "RecipeCollectionViewController.h"
 #import "DetailViewController.h"
+#import "RecipeCollectionViewCell.h"
 #import "Recipe.h"
 
-@interface CustomTableViewController ()
+@interface RecipeCollectionViewController ()
 
 @end
 
-@implementation CustomTableViewController
+@implementation RecipeCollectionViewController {
 
-{
     NSArray *recipes;
-    // declare an array for the search results
+    
     NSArray *searchResults;
     
     // declare a variable for the search bar UI element
     UISearchController *searchController;
+    
 }
+
+static NSString * const reuseIdentifier = @"Cell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Uncomment the following line to preserve selection between presentations
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Register cell classes
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+
     // Initialize the recipes array
+    
+    
     Recipe *recipe1 = [Recipe new];
     recipe1.name = @"Egg Benedict";
     recipe1.prepTime = @"30 min";
     recipe1.image = @"egg_benedict.jpg";
     recipe1.ingredients = [NSArray arrayWithObjects:@"2 fresh English muffins", @"4 eggs", @"4 rashers of back bacon", @"2 egg yolks", @"1 tbsp of lemon juice", @"125 g of butter", @"salt and pepper", nil];
     
-
+    
     
     Recipe *recipe2 = [Recipe new];
     recipe2.name = @"Mushroom Risotto";
@@ -97,7 +108,7 @@
     recipe11.prepTime = @"20 min";
     recipe11.image = @"noodle_with_bbq_pork.jpg";
     recipe11.ingredients = [NSArray arrayWithObjects:@"1 pack of Instant Noodle", @"BBQ pork", @"Salt and Pepper", nil];
-                            
+    
     Recipe *recipe12 = [Recipe new];
     recipe12.name = @"Japanese Noodle with Pork";
     recipe12.prepTime = @"20 min";
@@ -130,95 +141,92 @@
     
     recipes = [NSArray arrayWithObjects:recipe1, recipe2, recipe3, recipe4, recipe5, recipe6, recipe7, recipe8, recipe9, recipe10, recipe11, recipe12, recipe13, recipe14, recipe15, recipe16, nil];
     
+
     
-    // adding in the search bar
-    searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    [searchController.searchBar sizeToFit];
-    self.tableView.tableHeaderView = searchController.searchBar;
-    self.definesPresentationContext = YES;
-    
-    
-    // check self for searchResultsUpdater
-    searchController.searchResultsUpdater = self;
-    searchController.dimsBackgroundDuringPresentation = NO;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    // modified the tableVIew results to return the count for the amount of rows of the search results
-    
-    if (searchController.active){
-        return searchResults.count;
-    } else {
-        return [recipes count];
-    }
-}
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"CustomTableCell";
-    CustomTableViewCell *cell = (CustomTableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[CustomTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
-    
-    
-    // code to see if the search bar is active, then to return back only the objects that have been searched.
-    Recipe *recipe;
-    if (searchController.active) {
-        recipe = [searchResults objectAtIndex:indexPath.row];
-    } else {
-        recipe = [recipes objectAtIndex:indexPath.row];
-    }
-    cell.nameLabel.text = recipe.name;
-    cell.thumbnailImageView.image = [UIImage imageNamed:recipe.image];
-    cell.prepTimeLabel.text = recipe.prepTime;
-    
-    return cell;
-}
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    //return the number of sections.
-    return 1;
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-// add a method for content fildering of the search function
+/*
+#pragma mark - Navigation
 
-- (void)filterContentForSearchText:(NSString *)searchText {
-    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"name contains[c] %@", searchText];
-    searchResults = [recipes filteredArrayUsingPredicate:resultPredicate];
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+#pragma mark <UICollectionViewDataSource>
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+
+    return 1;
 }
 
-// adding code for the segue fromthe DetailViewController
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+
+    return [recipes count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    RecipeCollectionViewCell *cell = (RecipeCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    
+    // Configure the cell
+    Recipe *recipe;
+    recipe = [recipes objectAtIndex:indexPath.row];
+    cell.recipeImageView.image = [UIImage imageNamed:recipe.image];
+    return cell;
+}
+
+#pragma mark <UICollectionViewDelegate>
+
+// adding code for the segue from the DetailViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems];
         DetailViewController *destViewController = segue.destinationViewController;
-        // check if the search controller is active. If the user is doing a search, we retrieve the recipe from the search result rather than the recipes array
         Recipe *recipe;
-        if (searchController.active) {
-            recipe = [searchResults objectAtIndex:indexPath.row];
-        } else {
-            recipe = [recipes objectAtIndex:indexPath.row];
-        }
         destViewController.recipe = recipe;
     }
-
 }
 
+/*
+// Uncomment this method to specify if the specified item should be highlighted during tracking
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+	return YES;
+}
+*/
 
-// required methodd for the UISearchResultsUpdating protocol
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    [self filterContentForSearchText:searchController.searchBar.text];
-     [self.tableView reloadData];
+/*
+// Uncomment this method to specify if the specified item should be selected
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+*/
+
+/*
+// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
+	return NO;
 }
 
+- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+	return NO;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
+	
+}
+*/
 
 @end
