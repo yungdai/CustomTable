@@ -16,13 +16,14 @@
 @end
 
 @implementation RecipeCollectionViewController {
-
-    NSArray *recipes;
     
-    NSArray *searchResults;
+    // create a main recipe dictionary for the the sub-category of recipes
+    NSDictionary *recipes;
     
-    // declare a variable for the search bar UI element
-    UISearchController *searchController;
+    // create an diffrent array objects to store the recipes objects inside for each recipe
+    NSArray *mainDishes;
+    NSArray *drinkDesserts;
+    
     
 }
 
@@ -136,25 +137,25 @@
     recipe16.image = @"ham_and_cheese_panini.jpg";
     recipe16.ingredients = [NSArray arrayWithObjects:@"2 tablespoons unsalted butter", @"4 cups thinly sliced shallots", @"2 teaspoons fresh thyme", @"1/4 cup grainy Dijon mustard", @"8 slices rustic white bread", @"8 slices Gruyere cheese", @"8 ounces sliced cooked ham", nil];
     
-    recipes = [NSArray arrayWithObjects:recipe1, recipe2, recipe3, recipe4, recipe5, recipe6, recipe7, recipe8, recipe9, recipe10, recipe11, recipe12, recipe13, recipe14, recipe15, recipe16, nil];
     
-    
-    // adding in the search bar
-    searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    [searchController.searchBar sizeToFit];
-//    self.collectionView. = searchController.searchBar;
-    self.definesPresentationContext = YES;
-    
-    
-    // check self for searchResultsUpdater
-//    searchController.searchResultsUpdater = self;
-//    searchController.dimsBackgroundDuringPresentation = NO;
 
+    // assign the recipes to the subcategory arrays that they will belong to
+    mainDishes = [NSArray arrayWithObjects:recipe1, recipe2, recipe3, recipe4, recipe5, recipe9, recipe10, recipe11, recipe12, recipe14, recipe16, nil];
     
+    drinkDesserts = [NSArray arrayWithObjects:recipe6, recipe7, recipe8, recipe13, recipe15, nil];
+
+    // put the two different sub-categories into a dictionary so the keys will indicate which object is assigned to them.
+    // Reminder: the dictionary will set the array based on the keys in alphabetical order
+    recipes = @{@"1Main":mainDishes,
+                @"2DrinkDesserts":drinkDesserts
+    };
+    
+    // adding and inset to separate the two sections
+    UICollectionViewFlowLayout *collectionViewLayout =
+    (UICollectionViewFlowLayout*)self.collectionView.collectionViewLayout;
+    collectionViewLayout.sectionInset = UIEdgeInsetsMake(20, 0, 20, 0);
+
 }
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -174,14 +175,18 @@
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-
-    return 1;
+    
+    // count all the sub-categories by counting the keys in the recipes Object
+    return recipes.allKeys.count;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
-    return [recipes count];
+    
+    NSString *keyOfGivenSectionInTheRecipesDictionary = recipes.allKeys[section];
+    NSArray *recipesInsideEachSection = recipes[keyOfGivenSectionInTheRecipesDictionary];
+    return recipesInsideEachSection.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -189,9 +194,11 @@
     static NSString *cellID = @"Cell";
     RecipeCollectionViewCell *cell = (RecipeCollectionViewCell *) [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     
-    // Configure the cell
-    Recipe *recipe = [recipes objectAtIndex:indexPath.row];
-    cell.recipeImageView.image = [UIImage imageNamed:recipe.image];
+    // This code is to allow to pick out all the recipes from the two groups and get their row values
+    NSString *keyForRecipeTypes = [recipes.allKeys objectAtIndex:indexPath.section];
+    Recipe *recipe = [[recipes objectForKey:keyForRecipeTypes]objectAtIndex:indexPath.row];
+    
+    cell.recipeImageView.image = [UIImage imageNamed: recipe.image];
     cell.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photo-frame"]];
     cell.recipeLabel.text = recipe.name;
     return cell;
@@ -212,7 +219,9 @@
     if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
         NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems][0];
         DetailViewController *destViewController = segue.destinationViewController;
-        Recipe *recipe = recipes[indexPath.row];
+        
+        NSString *keyForRecipeTypes = [recipes.allKeys objectAtIndex:indexPath.section];
+        Recipe *recipe = [[recipes objectForKey:keyForRecipeTypes]objectAtIndex:indexPath.row];
         destViewController.recipe = recipe;
     }
 }
