@@ -10,6 +10,7 @@
 #import "DetailViewController.h"
 #import "RecipeCollectionViewCell.h"
 #import "Recipe.h"
+#import "RecipeCollectionHeaderView.h"
 
 @interface RecipeCollectionViewController ()
 
@@ -224,6 +225,28 @@
         Recipe *recipe = [[recipes objectForKey:keyForRecipeTypes]objectAtIndex:indexPath.row];
         destViewController.recipe = recipe;
     }
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView
+           viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionReusableView *reusableview = nil;
+    if (kind == UICollectionElementKindSectionHeader) {
+        RecipeCollectionHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"HeaderView" forIndexPath:indexPath];
+        if (indexPath.section == 0) {
+            NSString *title = [[NSString alloc]initWithFormat:@"Main Dishes"];
+            headerView.titleLabel.text = title;
+        } else if (indexPath.section == 1) {
+            NSString *title = [[NSString alloc]initWithFormat:@"Desserts and Drinks"];
+            headerView.titleLabel.text = title;
+        }
+        reusableview = headerView;
+    }
+    if (kind == UICollectionElementKindSectionFooter) {
+        UICollectionReusableView *footerview = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"FooterView" forIndexPath:indexPath];
+        reusableview = footerview;
+    }
+    return reusableview;
 }
 
 /*
