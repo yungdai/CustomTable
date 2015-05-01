@@ -220,7 +220,9 @@
         NSIndexPath *indexPath = [self.collectionView indexPathsForSelectedItems][0];
         DetailViewController *destViewController = segue.destinationViewController;
         
+        // get the section string value
         NSString *keyForRecipeTypes = [recipes.allKeys objectAtIndex:indexPath.section];
+        // use the using the section value key:pair to retrieve all obejcts inside the keypair
         Recipe *recipe = [[recipes objectForKey:keyForRecipeTypes]objectAtIndex:indexPath.row];
         destViewController.recipe = recipe;
     }
