@@ -8,12 +8,18 @@
 
 #import "DetailViewController.h"
 #import "CustomTableViewCell.h"
+#import <UIKit/UIKit.h>
+#import <Social/Social.h>
 
 @interface DetailViewController ()
 
 @end
 
-@implementation DetailViewController
+@implementation DetailViewController {
+    BOOL shareEnabled;
+    
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,7 +49,20 @@
     UITableViewCell *cell = (UITableViewCell *) [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     cell.textLabel.text = self.recipe.ingredients[indexPath.row];
     
+    
     return cell;
 }
 
+
+// adding in the action to share the picture of the recipe
+- (IBAction)ShareButtonTapped:(id)sender {
+
+        if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]){
+            SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+            [controller addImage:[UIImage imageNamed:self.recipe.image]];
+            [controller setInitialText:@"Check out this recipe!"];
+            [self presentViewController:controller animated:YES completion:nil];
+        
+        }
+}
 @end

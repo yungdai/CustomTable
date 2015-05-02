@@ -173,11 +173,18 @@
                             <constraint firstItem="6pP-Xm-9Ph" firstAttribute="top" secondItem="hwN-9E-XSj" secondAttribute="bottom" constant="2" id="yYn-43-cBg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VoN-BN-RCI"/>
+                    <navigationItem key="navigationItem" id="VoN-BN-RCI">
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="C9Q-3y-dcu">
+                            <connections>
+                                <action selector="ShareButtonTapped:" destination="3Kq-g3-eK0" id="YKX-U8-nsU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="ingredientsTableView" destination="ruq-Z8-lXS" id="6BW-sL-yZl"/>
                         <outlet property="prepTimeLabel" destination="6pP-Xm-9Ph" id="KvJ-su-gKI"/>
                         <outlet property="recipeImageView" destination="wYl-eC-DWe" id="pH8-0D-oD2"/>
+                        <outlet property="shareButton" destination="C9Q-3y-dcu" id="Up9-M7-s3K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eX6-Jm-9wO" userLabel="First Responder" sceneMemberID="firstResponder"/>

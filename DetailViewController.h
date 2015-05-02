@@ -17,7 +17,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *recipeImageView;
 @property (strong, nonatomic) IBOutlet UILabel *prepTimeLabel;
 @property (strong, nonatomic) IBOutlet UITableView *ingredientsTableView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 
 @property (strong, nonatomic) Recipe *recipe;
+- (IBAction)ShareButtonTapped:(id)sender;
 
 @end
